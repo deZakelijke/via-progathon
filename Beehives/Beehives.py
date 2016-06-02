@@ -81,10 +81,11 @@ def findBiggestHive(hiveGrid):
 
 numberOfCases = int(raw_input())
 
-raw_input()
 
 for i in range(numberOfCases):
     # new beehive
+    string = raw_input()
+    print string
     beehive = []
     # first line is done by hand
     string = raw_input()
@@ -102,6 +103,4 @@ for i in range(numberOfCases):
     biggestHive = findBiggestHive(beehive)    
     print biggestHive
 
-    string = raw_input()
-    print string
         
