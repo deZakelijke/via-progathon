@@ -1,8 +1,6 @@
 import sys
 import numpy as np
 
-def sum2(array):
-    return sum(map(sum, array))
 
 # returns the union of two sets, whre a set is defined as the ones in a 2D grid
 # output is the size of set1, set2 must be of same size
@@ -48,7 +46,6 @@ def findHive(hiveGrid):
             break
             
     # dilute untill the hive does not increase in size
-    # TODO something is wrong with the struct or the dilute function
     struct = [[int(-1),int(-1)],[int(-1),0],[int(-1),1],[0,int(-1)],[0,0],[0,1],[1,int(-1)],[1,0],[1,1]]
     hiveDilute = dilute(hive,struct)
     dilutedHive = intersect(hiveDilute,hiveGrid) 
@@ -69,9 +66,9 @@ def removeHive(hiveGrid, hive):
 
 def findBiggestHive(hiveGrid):
     biggestHive = 0
-    while sum2(hiveGrid) != 0:
+    while np.sum(hiveGrid) != 0:
         hive = findHive(hiveGrid)
-        hiveSum = sum2(hive)
+        hiveSum = np.sum(hive)
         if hiveSum > biggestHive:
             biggestHive = hiveSum
         hiveGrid = removeHive(hiveGrid, hive)
@@ -85,7 +82,8 @@ numberOfCases = int(raw_input())
 for i in range(numberOfCases):
     # new beehive
     string = raw_input()
-    print string
+    if i != 0:
+        print string
     beehive = []
     # first line is done by hand
     string = raw_input()
