@@ -14,16 +14,13 @@ while True:
             cost = int(raw_input())
             if people*cost <= money:
                 enoughMoney = True
-                print enoughMoney
             availability = raw_input().split()
             for j in range(weeks):
-                if availability[j] <= weeks:
+                if int(availability[j]) >= people:
                     room = True
-                    print room
             if enoughMoney and room:
                 hostelFound = True
-                print hostelFound
-            if hostelFound and people*cost < totalCost:
+            if  enoughMoney and room and people*cost < totalCost:
                 totalCost = people*cost
             room = False
             enoughMoney = False 
